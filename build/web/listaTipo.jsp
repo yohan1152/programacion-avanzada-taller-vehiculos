@@ -4,7 +4,8 @@
     Author     : 503
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%> -->
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -449,7 +450,7 @@
 								<b class="arrow"></b>
 							</li>
                                                         <li class="">
-								<a href="#">
+								<a href="registrarTv.jsp">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Registrar Tipo Vehículo
 								</a>
