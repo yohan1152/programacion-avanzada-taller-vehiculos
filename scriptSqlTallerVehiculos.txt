@@ -1,24 +1,25 @@
 create table tipo_vehiculo(
-    id_tv int primary key, 
+    id_tv int primary key AUTO_INCREMENT, 
     nombre_tv varchar (50) unique not null  
 );
 
 CREATE TABLE vehiculo(
     placa varchar (6) primary key, 
     marca varchar (50) not null,
-    referencia varchar (50) not null,
-    modelo int,
+    modelo varchar (50) not null,
+    matricula varchar (50) not null,
+    ano int not null,
     id_tv int,
     foreign key (id_tv) references tipo_vehiculo(id_tv)
 );
 
 CREATE TABLE tipo_conductor(
-    id_tc int primary key, 
+    id_tc int primary key AUTO_INCREMENT, 
     nombre varchar (50) unique not null
 );
 
 CREATE TABLE conductor(
-    id_conductor int primary key, 
+    id_conductor int primary key AUTO_INCREMENT, 
     nombre varchar (100) not null,
     tipo_licencia varchar (50),
     id_vehiculo varchar (6),
@@ -28,14 +29,14 @@ CREATE TABLE conductor(
 );
 
 CREATE TABLE ruta(
-    id_ruta int primary key, 
+    id_ruta int primary key AUTO_INCREMENT, 
     estacion varchar (100) not null,
     id_vehiculo varchar (6),
     foreign key (id_vehiculo) references vehiculo(placa)
 );
 
 CREATE TABLE contrato(
-    id_contrato int primary key, 
+    id_contrato int primary key AUTO_INCREMENT, 
     id_conductor int,
     id_vehiculo varchar (6),
     foreign key (id_vehiculo) references vehiculo(placa),

@@ -442,9 +442,17 @@
 							</li>
 
 							<li class="">
-								<a href="#">
+								<a href="registrarTc.jsp">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Registrar Vehículo
+									Registrar Tipo Conductor
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+                                                        <li class="">
+								<a href="registrarConductor.jsp">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Registrar Conductor
 								</a>
 
 								<b class="arrow"></b>
@@ -453,6 +461,14 @@
 								<a href="registrarTv.jsp">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Registrar Tipo Vehículo
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+                                                         <li class="">
+								<a href="registrarVehiculo.jsp">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Registrar Vehículo
 								</a>
 
 								<b class="arrow"></b>

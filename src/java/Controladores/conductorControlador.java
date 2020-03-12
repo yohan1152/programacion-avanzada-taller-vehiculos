@@ -5,20 +5,22 @@
  */
 package Controladores;
 
-import dao.tipoVehiculoDAO;
+import dao.conductorDAO;
+import dao.vehiculoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.TipoVehiculo;
+import modelos.Conductor;
+import modelos.Vehiculo;
 
 /**
  *
- * @author 503
+ * @author yohan.puerta
  */
-public class tipoVehiculoControlador extends HttpServlet {
+public class conductorControlador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -65,19 +67,25 @@ public class tipoVehiculoControlador extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         //Recibir parametros
-        String nomTv = request.getParameter("txtNomTv");
+        String nombre = request.getParameter("txtNombreCond");
+        String tipo_licencia = request.getParameter("txtTipoLicenciaCond");
+        String id_vehiculo  = request.getParameter("txtIdVehiculoCond");
+        int id_tipo_conductor = Integer.parseInt(request.getParameter("txtTipoConductorCond"));
         
         //Instanciar modelo
-        TipoVehiculo tipoVehi = new TipoVehiculo();
-        tipoVehi.setNomTv(nomTv);
+        Conductor conductor = new Conductor();
+        conductor.setNombre(nombre);
+        conductor.setTipo_licencia(tipo_licencia);
+        conductor.setId_vehiculo(id_vehiculo);
+        conductor.setId_conductor(id_tipo_conductor);
         
-        if(tipoVehiculoDAO.insertTv(tipoVehi)){
-            request.setAttribute("mensaje", "El tipo de vehiculo se registro correctamente.");
+        if(conductorDAO.insertConductor(conductor)){
+            request.setAttribute("mensaje", "El conductor se registro correctamente.");
         }else{
-            request.setAttribute("mensaje", "El tipo de vehiculo no pudo ser registrado.");
+            request.setAttribute("mensaje", "El conductor no pudo ser registrado.");
         }
         
-        request.getRequestDispatcher("registrarTv.jsp").forward(request, response);
+        request.getRequestDispatcher("registrarConductor.jsp").forward(request, response);
     }
 
     /**

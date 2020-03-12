@@ -6,6 +6,7 @@
 package Controladores;
 
 import dao.tipoVehiculoDAO;
+import dao.vehiculoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,12 +14,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelos.TipoVehiculo;
+import modelos.Vehiculo;
 
 /**
  *
- * @author 503
+ * @author yohan.puerta
  */
-public class tipoVehiculoControlador extends HttpServlet {
+public class vehiculoControlador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -65,19 +67,29 @@ public class tipoVehiculoControlador extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         //Recibir parametros
-        String nomTv = request.getParameter("txtNomTv");
+        String placa = request.getParameter("txtPlacaVeh");
+        String marca = request.getParameter("txtMarcaVeh");
+        String modelo = request.getParameter("txtModeloVeh");
+        String matricula = request.getParameter("txtMatriculaVeh");
+        int ano = Integer.parseInt(request.getParameter("txtAnoVeh"));
+        int id_tv = Integer.parseInt(request.getParameter("txtTipoVeh"));
         
         //Instanciar modelo
-        TipoVehiculo tipoVehi = new TipoVehiculo();
-        tipoVehi.setNomTv(nomTv);
+        Vehiculo vehiculo = new Vehiculo();
+        vehiculo.setPlaca(placa);
+        vehiculo.setMarca(marca);
+        vehiculo.setModelo(modelo);
+        vehiculo.setMatricula(matricula);
+        vehiculo.setAno(ano);
+        vehiculo.setId_tv(id_tv);
         
-        if(tipoVehiculoDAO.insertTv(tipoVehi)){
-            request.setAttribute("mensaje", "El tipo de vehiculo se registro correctamente.");
+        if(vehiculoDAO.insertVehiculo(vehiculo)){
+            request.setAttribute("mensaje", "El vehiculo se registro correctamente.");
         }else{
-            request.setAttribute("mensaje", "El tipo de vehiculo no pudo ser registrado.");
+            request.setAttribute("mensaje", "El vehiculo no pudo ser registrado.");
         }
         
-        request.getRequestDispatcher("registrarTv.jsp").forward(request, response);
+        request.getRequestDispatcher("registrarVehiculo.jsp").forward(request, response);
     }
 
     /**

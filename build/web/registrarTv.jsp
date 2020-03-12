@@ -583,7 +583,7 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="table-header">
-											Registrar Vehículo
+											Registrar Tipo Vehículo
 										</div>
 
 										<!-- div.table-responsive -->
@@ -592,15 +592,6 @@
 										<div>
                                                                                     
                                                                                     <form action="tipoVehiculoControlador" method="POST">
-                                                                                        <div class="form-group">
-                                                                                            <label class="col-sm-2 control-label no-padding-right">
-                                                                                                Tipo Vehículo
-                                                                                            </label>
-                                                                                            <div class="col-sm-10">
-                                                                                                <input type="text" name="txtTv" class="form-control" placeholder="Ingresar ID">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <br/><br/>
                                                                                         <div class="form-group">
                                                                                             <label class="col-sm-2 control-label no-padding-right">
                                                                                                 Nombre

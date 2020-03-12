@@ -1,7 +1,7 @@
 <%-- 
-    Document   : listaTipo
-    Created on : 26/02/2020, 08:54:56 PM
-    Author     : 503
+    Document   : registrarVehiculo
+    Created on : 11/03/2020, 08:35:26 PM
+    Author     : yohan.puerta
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -442,33 +442,17 @@
 							</li>
 
 							<li class="">
-								<a href="registrarTc.jsp">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Registrar Tipo Conductor
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-                                                        <li class="">
-								<a href="registrarConductor.jsp">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Registrar Conductor
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-                                                        <li class="">
-								<a href="registrarTv.jsp">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Registrar Tipo Vehículo
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-                                                         <li class="">
-								<a href="registrarVehiculo.jsp">
+								<a href="#">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Registrar Vehículo
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+                                                        <li class="">
+								<a href="#">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Registrar Tipo Vehículo
 								</a>
 
 								<b class="arrow"></b>
@@ -599,111 +583,82 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<div class="table-header">
-											Resultados de vehículos registrados
+											Registrar Vehículo
 										</div>
 
 										<!-- div.table-responsive -->
 
 										<!-- div.dataTables_borderWrap -->
 										<div>
-											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
-												<thead>
-													<tr>
-														<th>Id Vehículo</th>
-														<th>Marca</th>
-														<th>Modelo</th>
-														<th class="hidden-480">Matricula</th>
-
-														<th>
-															<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-															Año
-														</th>
-                                                                                                                <th>
-															
-															Tipo Vehículo
-														</th>
-														<!-- <th class="hidden-480">Categoría</th> -->
-
-														<th></th>
-													</tr>
-												</thead>
-
-												<tbody>
-													<tr>
-
-														<td>
-														<a href="#">101</a>
-														</td>
-														<td class="hidden-480">Chevrolet</td>
-														<td>Sail</td>
-
-														<td>2017-2012-1331</td>
-                            <td><span class="label label-sm label-success">2017</span></td>
-                            <td>
-															<span class="label label-sm label-success">Automovil</span>
-														</td>
-
-														<td>
-															<div class="hidden-sm hidden-xs action-buttons">
-																<a class="blue" href="#">
-																	<i class="ace-icon fa fa-search-plus bigger-130"></i>
-																</a>
-
-																<a class="green" href="#">
-																	<i class="ace-icon fa fa-pencil bigger-130"></i>
-																</a>
-
-																<a class="red" href="#">
-																	<i class="ace-icon fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
-
-															<div class="hidden-md hidden-lg">
-																<div class="inline pos-rel">
-																	<button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
-																		<i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
-																	</button>
-
-																	<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-																		<li>
-																			<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-																				<span class="blue">
-																					<i class="ace-icon fa fa-search-plus bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
-
-																		<li>
-																			<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-																				<span class="green">
-																					<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
-
-																		<li>
-																			<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-																				<span class="red">
-																					<i class="ace-icon fa fa-trash-o bigger-120"></i>
-																				</span>
-																			</a>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</td>
-													</tr>
-
-													
-													</tbody>
-												</table>
-											</div>
+                                                                                    
+                                                                                    <form action="vehiculoControlador" method="POST">
+                                                                                        <div class="form-group">
+                                                                                            <label class="col-sm-2 control-label no-padding-right">
+                                                                                                Placa
+                                                                                            </label>
+                                                                                            <div class="col-sm-10">
+                                                                                                <input type="text" name="txtPlacaVeh" class="form-control" maxlength="6" placeholder="Ingresar Placa del Vehículo sin espacios">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <br><br><br>
+                                                                                        <div class="form-group">
+                                                                                            <label class="col-sm-2 control-label no-padding-right">
+                                                                                                Marca
+                                                                                            </label>
+                                                                                            <div class="col-sm-10">
+                                                                                                <input type="text" name="txtMarcaVeh" class="form-control" placeholder="Ingresar Marca del Vehículo">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <br><br>
+                                                                                        <div class="form-group">
+                                                                                            <label class="col-sm-2 control-label no-padding-right">
+                                                                                                Modelo
+                                                                                            </label>
+                                                                                            <div class="col-sm-10">
+                                                                                                <input type="text" name="txtModeloVeh" class="form-control" placeholder="Ingresar Modelo del Vehículo">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <br><br>
+                                                                                        <div class="form-group">
+                                                                                            <label class="col-sm-2 control-label no-padding-right">
+                                                                                                Matricula
+                                                                                            </label>
+                                                                                            <div class="col-sm-10">
+                                                                                                <input type="text" name="txtMatriculaVeh" class="form-control" placeholder="Ingresar Matricula del Vehículo">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <br><br>
+                                                                                        <div class="form-group">
+                                                                                            <label class="col-sm-2 control-label no-padding-right">
+                                                                                                Año
+                                                                                            </label>
+                                                                                            <div class="col-sm-10">
+                                                                                                <input type="text" name="txtAnoVeh" class="form-control" maxlength="4" placeholder="Ingresar Año del Vehículo">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <br><br>
+                                                                                        <div class="form-group">
+                                                                                            <label class="col-sm-2 control-label no-padding-right">
+                                                                                                Tipo Vehículo
+                                                                                            </label>
+                                                                                            <div class="col-sm-10">
+                                                                                                <input type="text" name="txtTipoVeh" class="form-control" placeholder="Ingresar Tipo de Vehículo">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <br><br>
+                                                                                        <button type="submit" name="btnGuardarVeh" class="btn btn-success">
+                                                                                            <i class="fa fa-save"></i>
+                                                                                            Registrar
+                                                                                        </button>
+                                                                                        
+                                                                                        <div>
+                                                                                            <%=(request.getAttribute("mensaje") != null? request.getAttribute("mensaje"):"")%>
+                                                                                        </div>
+                                                                                    </form>
+                                                                                    
+										</div>
 
 											<div class="modal-footer no-margin-top">
-												<button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
-													<i class="ace-icon fa fa-times"></i>
-													Close
-												</button>
 
 												<ul class="pagination pull-right no-margin">
 													<li class="prev disabled">
@@ -1038,4 +993,3 @@
 		</script>
 	</body>
 </html>
-

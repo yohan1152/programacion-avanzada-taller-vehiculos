@@ -5,20 +5,20 @@
  */
 package Controladores;
 
-import dao.tipoVehiculoDAO;
+import dao.tipoConductorDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.TipoVehiculo;
+import modelos.TipoConductor;
 
 /**
  *
- * @author 503
+ * @author yohan.puerta
  */
-public class tipoVehiculoControlador extends HttpServlet {
+public class tipoConductorControlador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -64,20 +64,20 @@ public class tipoVehiculoControlador extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        //Recibir parametros
-        String nomTv = request.getParameter("txtNomTv");
+         //Recibir parametros
+        String nomTc = request.getParameter("txtNomTc");
         
         //Instanciar modelo
-        TipoVehiculo tipoVehi = new TipoVehiculo();
-        tipoVehi.setNomTv(nomTv);
+        TipoConductor tipoCond = new TipoConductor();
+        tipoCond.setNombre(nomTc);
         
-        if(tipoVehiculoDAO.insertTv(tipoVehi)){
-            request.setAttribute("mensaje", "El tipo de vehiculo se registro correctamente.");
+        if(tipoConductorDAO.insertTc(tipoCond)){
+            request.setAttribute("mensaje", "El tipo de conductor se registro correctamente.");
         }else{
-            request.setAttribute("mensaje", "El tipo de vehiculo no pudo ser registrado.");
+            request.setAttribute("mensaje", "El tipo de conductor no pudo ser registrado.");
         }
         
-        request.getRequestDispatcher("registrarTv.jsp").forward(request, response);
+        request.getRequestDispatcher("registrarTc.jsp").forward(request, response);
     }
 
     /**
