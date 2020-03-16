@@ -1,18 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import modelos.TipoConductor;
 import modelos.TipoVehiculo;
 
 /**
  *
- * @author 503
+ * @author Yohan Puerta
  */
 public class tipoVehiculoDAO {
     
@@ -29,5 +28,29 @@ public class tipoVehiculoDAO {
         }catch(SQLException ex){
             return false;
         }        
+    }
+    
+    //Método Listar Tipo de Vehículo
+    public static List listTipoVehiculos(){
+        ArrayList<TipoVehiculo> listTipoVehiculo = new ArrayList<>();
+        try{
+            Connection cone = conexionLib.conectarnosDB();
+            String sql = "SELECT * FROM tipo_vehiculo;";
+            PreparedStatement ps = cone.prepareStatement(sql);
+            ResultSet rs;
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                TipoVehiculo tipoVehiculo = new TipoVehiculo();
+                tipoVehiculo.setIdTv(rs.getInt("id_tv"));
+                tipoVehiculo.setNomTv(rs.getString("nombre_tv"));
+               
+                listTipoVehiculo.add(tipoVehiculo);
+            }
+            return listTipoVehiculo;
+            
+        }catch(SQLException ex){
+            return listTipoVehiculo = null;
+        } 
     }
 }

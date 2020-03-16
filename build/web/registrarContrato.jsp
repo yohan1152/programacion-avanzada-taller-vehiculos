@@ -1,16 +1,21 @@
 <%-- 
-    Document   : registrarTv
-    Created on : 4/03/2020, 06:50:31 PM
+    Document   : registrarContrato
+    Created on : 15/03/2020, 04:47:23 PM
     Author     : Yohan Puerta
 --%>
 
+<%@page import="modelos.Conductor"%>
+<%@page import="dao.conductorDAO"%>
+<%@page import="java.util.List"%>
+<%@page import="modelos.Vehiculo"%>
+<%@page import="dao.vehiculoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Registrar Tipo Vehículo</title>
-    <meta name="description" content="Página donde se van a registrar todos los tipos de vehículos" />
+    <title>Registrar Contrato</title>
+    <meta name="description" content="Página donde se van a Registrar todos los Contratos" />
     <jsp:include page="./modulos/head.jsp"></jsp:include>
 </head>
 
@@ -132,7 +137,7 @@
                                                 <div class="row">
                                                         <div class="col-xs-12">
                                                                 <div class="table-header">
-                                                                        Registrar Tipo Vehículo
+                                                                        Registrar Contrato
                                                                 </div>
 
                                                                 <!-- div.table-responsive -->
@@ -140,16 +145,44 @@
                                                                 <!-- div.dataTables_borderWrap -->
                                                                 <div>
 
-                                                                    <form action="tipoVehiculoControlador" method="POST">
+                                                                    <form action="contratoControlador" method="POST">
                                                                         <div class="form-group">
                                                                             <label class="col-sm-2 control-label no-padding-right">
-                                                                                Nombre
+                                                                                Conductor
                                                                             </label>
                                                                             <div class="col-sm-10">
-                                                                                <input type="text" name="txtNomTv" class="form-control" placeholder="Ingresar nombre Tipo de Vehículo">
+                                                                                <select name="txtConductorContrato" class="form-control" required>
+                                                                                    <%
+                                                                                        conductorDAO condDAO = new conductorDAO();
+                                                                                        List<Conductor> listCond = condDAO.listConductores();
+
+                                                                                        for(Conductor cond : listCond){
+                                                                                    %>
+                                                                                    <option value="<%= cond.getId_conductor()%>"><%= cond.getNombre()%></option>
+                                                                                    <% } %>
+                                                                                </select>
                                                                             </div>
                                                                         </div>
-                                                                        <button type="submit" name="btnGuardarTv" class="btn btn-success">
+                                                                        <br><br><br>
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-2 control-label no-padding-right">
+                                                                                Vehículo
+                                                                            </label>
+                                                                            <div class="col-sm-10">
+                                                                                <select name="txtVehiculoContrato" class="form-control" required>
+                                                                                    <%
+                                                                                        vehiculoDAO vDAO = new vehiculoDAO();
+                                                                                        List<Vehiculo> listVehi = vDAO.listVehiculos();
+
+                                                                                        for(Vehiculo v : listVehi){
+                                                                                    %>
+                                                                                    <option value="<%= v.getPlaca()%>"><%= v.getPlaca()%></option>
+                                                                                    <% } %>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <br><br>
+                                                                        <button type="submit" name="btnGuardarContrato" class="btn btn-success">
                                                                             <i class="fa fa-save"></i>
                                                                             Registrar
                                                                         </button>

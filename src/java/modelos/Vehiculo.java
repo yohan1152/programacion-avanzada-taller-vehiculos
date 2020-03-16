@@ -1,11 +1,12 @@
-
 package modelos;
+
+import java.io.Serializable;
 
 /**
  *
- * @author yohan.puerta
+ * @author Yohan Puerta
  */
-public class Vehiculo {
+public class Vehiculo implements Serializable{
     private String placa; 
     private String marca;
     private String modelo;

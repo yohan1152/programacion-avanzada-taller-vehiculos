@@ -1,11 +1,12 @@
-
 package modelos;
+
+import java.io.Serializable;
 
 /**
  *
- * @author yohan.puerta
+ * @author Yohan Puerta
  */
-public class Conductor {
+public class Conductor implements Serializable {
     private int id_conductor;
     private String nombre;
     private String tipo_licencia;

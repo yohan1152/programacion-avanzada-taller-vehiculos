@@ -1,19 +1,19 @@
 package Controladores;
 
-import dao.tipoConductorDAO;
+import dao.rutaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.TipoConductor;
+import modelos.Ruta;
 
 /**
  *
  * @author Yohan Puerta
  */
-public class tipoConductorControlador extends HttpServlet {
+public class rutaControlador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -60,20 +60,22 @@ public class tipoConductorControlador extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         //Recibir parametros
-        String nomTc = request.getParameter("txtNomTc");
+        String estacionRuta = request.getParameter("txtEstacionRuta");
+        String vehiculoRuta = request.getParameter("txtVehiculoRuta");
         
         //Instanciar modelo
-        TipoConductor tipoCond = new TipoConductor();
-        tipoCond.setNombre(nomTc);
+        Ruta ruta = new Ruta();
+        ruta.setEstacion(estacionRuta);
+        ruta.setId_vehiculo(vehiculoRuta);
         
-        if(tipoConductorDAO.insertTc(tipoCond)){
-            request.setAttribute("mensaje", "El tipo de conductor se registro correctamente.");
+        if(rutaDAO.insertRuta(ruta)){
+            request.setAttribute("mensaje", "La ruta se registró correctamente.");
         }else{
-            request.setAttribute("mensaje", "El tipo de conductor no pudo ser registrado.");
+            request.setAttribute("mensaje", "La ruta no pudo ser registrada.");
         }
         
-        request.getRequestDispatcher("registrarTc.jsp").forward(request, response);
-    }
+        request.getRequestDispatcher("registrarRuta.jsp").forward(request, response);
+    }   
 
     /**
      * Returns a short description of the servlet.

@@ -16,6 +16,14 @@
         <servlet-name>conductorControlador</servlet-name>
         <servlet-class>Controladores.conductorControlador</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>rutaControlador</servlet-name>
+        <servlet-class>Controladores.rutaControlador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>contratoControlador</servlet-name>
+        <servlet-class>Controladores.contratoControlador</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>tipoVehiculoControlador</servlet-name>
         <url-pattern>/tipoVehiculoControlador</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>conductorControlador</servlet-name>
         <url-pattern>/conductorControlador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>rutaControlador</servlet-name>
+        <url-pattern>/rutaControlador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>contratoControlador</servlet-name>
+        <url-pattern>/contratoControlador</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

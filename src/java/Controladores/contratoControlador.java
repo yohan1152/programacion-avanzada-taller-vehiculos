@@ -1,19 +1,19 @@
 package Controladores;
 
-import dao.tipoConductorDAO;
+import dao.contratoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelos.TipoConductor;
+import modelos.Contrato;
 
 /**
  *
  * @author Yohan Puerta
  */
-public class tipoConductorControlador extends HttpServlet {
+public class contratoControlador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -60,19 +60,21 @@ public class tipoConductorControlador extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         //Recibir parametros
-        String nomTc = request.getParameter("txtNomTc");
+        int conductorContrato = Integer.parseInt(request.getParameter("txtConductorContrato"));
+        String vehiculoContrato = request.getParameter("txtVehiculoContrato");
         
         //Instanciar modelo
-        TipoConductor tipoCond = new TipoConductor();
-        tipoCond.setNombre(nomTc);
+        Contrato contrato = new Contrato();
+        contrato.setId_conductor(conductorContrato);
+        contrato.setId_vehiculo(vehiculoContrato);
         
-        if(tipoConductorDAO.insertTc(tipoCond)){
-            request.setAttribute("mensaje", "El tipo de conductor se registro correctamente.");
+        if(contratoDAO.insertContrato(contrato)){
+            request.setAttribute("mensaje", "El contrato se registró correctamente.");
         }else{
-            request.setAttribute("mensaje", "El tipo de conductor no pudo ser registrado.");
+            request.setAttribute("mensaje", "El contrato no pudo ser registrado.");
         }
         
-        request.getRequestDispatcher("registrarTc.jsp").forward(request, response);
+        request.getRequestDispatcher("registrarContrato.jsp").forward(request, response);
     }
 
     /**

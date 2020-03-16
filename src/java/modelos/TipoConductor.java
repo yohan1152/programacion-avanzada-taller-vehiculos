@@ -1,11 +1,10 @@
-
 package modelos;
 
 import java.io.Serializable;
 
 /**
  *
- * @author yohan.puerta
+ * @author Yohan Puerta
  */
 public class TipoConductor implements Serializable{
     
